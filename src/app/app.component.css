@@ -1,0 +1,16 @@
+h1 {
+    text-align: center;
+}
+
+.mine-field {
+    text-align: center;
+}
+
+.field-cell {
+    border: 1px solid #999;
+    display: inline-block;
+    height: 3em;
+    width: 3em;
+    text-align: center;
+    line-height: 3em;
+}
