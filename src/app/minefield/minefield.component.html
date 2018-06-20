@@ -1,6 +1,6 @@
 <div class="field-container">
   <div class="field-row" *ngFor="let r of getRows()">
-    <div class="field-cell" *ngFor="let t of getCells(r); let c = index" (click)="discover(r,c)">
+    <div class="field-cell" *ngFor="let t of getCells(r); let c = index" (click)="discover(r,c,$event)" (contextmenu)="flag(r,c,$event)">
       <app-tile [tileValue]="t"></app-tile>
     </div>
   </div>

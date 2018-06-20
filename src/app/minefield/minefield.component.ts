@@ -25,9 +25,22 @@ export class MinefieldComponent implements OnInit {
       return this.game.state.slice(r * this.game.cols, (r * this.game.cols) + this.game.cols);
   }
 
-  discover (r,c) {
+  flag (r,c,e): boolean {
+    let i = (r * this.game.cols) + c;
+    let s = this.game.state[i];
+    // you can't flag an opened tile
+    if (['H','F'].indexOf(s) >= 0) {
+      //toggle b/t flag and hidden
+      this.game.state[i] = s === 'H' ? 'F' : 'H';
+    }
+    // prevent context menu unless 'shift' clicked
+    return e.shiftKey;
+  }
+
+  discover (r,c,e?) {
     let i = (r * this.game.cols) + c;
     let val = this.game.field[i];
+    if (e && this.game.state[i] === 'F') return;
     this.game.state[i] = val;
     if (val === '0') this.explore(i);
   }
