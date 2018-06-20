@@ -25,14 +25,37 @@ export class Game {
         // calculate adjacent mines
         for (let i = 0; i < this.field.length; i++) {
             let c = 0;
-            if (this.field[i+(this.cols + 1)] && this.field[i+(this.cols + 1)] === 'B') c++;
-            if (this.field[i+this.cols] && this.field[i+this.cols] === 'B') c++;
-            if (this.field[i+(this.cols - 1)] && this.field[i+(this.cols - 1)] === 'B') c++;
-            if (this.field[i+1] && this.field[i+1] === 'B') c++;
-            if (this.field[i-1] && this.field[i-1] === 'B') c++;
-            if (this.field[i-(this.cols + 1)] && this.field[i-(this.cols + 1)] === 'B') c++;
-            if (this.field[i-this.cols] && this.field[i-this.cols] === 'B') c++;
-            if (this.field[i-(this.cols - 1)] && this.field[i-(this.cols - 1)] === 'B') c++;
+            let row = Math.floor((i)/this.cols);
+            let col = i % this.cols;
+            console.log(i, row, col);
+            if (this.field[i] === 'B') continue;
+            // TL
+            if (row > 0 && col > 0 &&
+                this.field[(i - this.cols) - 1] === 'B') c++;
+            // TC
+            if (row > 0 &&
+                this.field[i-this.cols] === 'B') c++;
+            // TR
+            if (row > 0 && col < (this.cols-1) &&
+                this.field[(i - this.cols) + 1] === 'B') c++;
+            // ML
+            if (col > 0 &&
+                this.field[i - 1] === 'B') c++;
+            // MR
+            if (col < (this.cols - 1) &&
+                this.field[i + 1] === 'B') c++;
+            // BL
+            if (row < (this.rows - 1) &&
+                col > 0 &&
+                this.field[(i + this.cols) - 1] === 'B') c++;
+            // BC
+            if (row < (this.rows - 1) &&
+                this.field[i + this.cols] === 'B') c++;
+            // BR
+            if (row < (this.rows - 1) &&
+                col < (this.cols - 1) &&
+                this.field[(i + this.cols) + 1] === 'B') c++;
+            // set value as string
             if (this.field[i] !== 'B') this.field[i] = String(c);
         }
     }
