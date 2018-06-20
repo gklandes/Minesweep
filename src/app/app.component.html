@@ -2,22 +2,7 @@
   Minesweep
 </h1>
 <hr>
-<div class="mine-field">
-  <div class="field-row" *ngFor="let r of game.getRows()">
-    <div class="field-cell" *ngFor="let c of game.getCells(r)">
-      <!-- {{ getCellType(c) }} -->
-      <span [ngSwitch]="getCellType(c)">
-        <span *ngSwitchCase="'bomb'"><fa-icon [icon]="faBomb"></fa-icon></span>
-        <span *ngSwitchCase="'num'">{{ c }}</span>
-      </span>
-    </div>
-  </div>
-</div>
-  <hr>
-<div style="text-align:center">
-  <fa-icon [icon]="faCoffee"></fa-icon>
-</div>
+<app-minefield [game]="game"></app-minefield>
 
+<hr>
 {{ game | json }}
-
-rows: {{ game.getRows() }}

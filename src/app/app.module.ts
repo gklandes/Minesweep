@@ -4,12 +4,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { MineFieldComponent } from './mine-field/mine-field.component';
+import { TileComponent } from './tile/tile.component';
+import { MinefieldComponent } from './minefield/minefield.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MineFieldComponent
+    TileComponent,
+    MinefieldComponent
   ],
   imports: [
     BrowserModule,

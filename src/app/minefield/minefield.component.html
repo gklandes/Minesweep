@@ -1,0 +1,8 @@
+<div class="field-container">
+  <div class="field-row" *ngFor="let r of game.getRows()">
+    <div class="field-cell" *ngFor="let c of game.getCells(r)">
+      <app-tile [tileValue]="c"></app-tile>
+    </div>
+  </div>
+</div>
+
