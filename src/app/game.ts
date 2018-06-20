@@ -2,14 +2,16 @@ export interface GameData {
     rows: number,
     cols: number,
     moves: number,
-    field: string[]
+    field: string[],
+    state: string[]
 }
 
 export class Game {
-    rows: number = 8;
-    cols: number = 8;
+    rows: number = 5;
+    cols: number = 5;
     moves: number = 0;
     field: string[] = [];
+    state: string[] = [];
 
     constructor (data?: GameData) {
         if (data) Object.assign(this, data);
@@ -18,17 +20,20 @@ export class Game {
 
     initField () {
         this.field = new Array(this.rows * this.cols);
+        this.state = new Array(this.field.length).fill('H');
+
         // lay the mines
         for (let i = 0; i < this.field.length; i++) {
             this.field[i] = Math.random() < .1 ? 'B' : '';
         }
         // calculate adjacent mines
         for (let i = 0; i < this.field.length; i++) {
+            if (this.field[i] === 'B') continue;
+
             let c = 0;
             let row = Math.floor((i)/this.cols);
             let col = i % this.cols;
-            console.log(i, row, col);
-            if (this.field[i] === 'B') continue;
+
             // TL
             if (row > 0 && col > 0 &&
                 this.field[(i - this.cols) - 1] === 'B') c++;
@@ -58,14 +63,5 @@ export class Game {
             // set value as string
             if (this.field[i] !== 'B') this.field[i] = String(c);
         }
-    }
-
-    getRows () {
-        let i = 0;
-        return Array.from(new Array(this.rows).fill(0), x => i++);
-    }
-
-    getCells (r) {
-        return this.field.slice(r * this.cols, (r * this.cols) + this.cols);
     }
 }

@@ -1,7 +1,7 @@
 <div class="field-container">
-  <div class="field-row" *ngFor="let r of game.getRows()">
-    <div class="field-cell" *ngFor="let c of game.getCells(r)">
-      <app-tile [tileValue]="c"></app-tile>
+  <div class="field-row" *ngFor="let r of getRows()">
+    <div class="field-cell" *ngFor="let t of getCells(r); let c = index" (click)="discover(r,c)">
+      <app-tile [tileValue]="t"></app-tile>
     </div>
   </div>
 </div>
