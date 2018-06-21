@@ -7,6 +7,8 @@ font-family: 'Bungee', cursive;
 */
 @import url('https://fonts.googleapis.com/css?family=Bungee|Exo+2');
 
+@import 'mixins';
+
 html,
 body {
     height: 100%;
@@ -14,6 +16,10 @@ body {
     padding: 0;
 }
 body {
-    background: radial-gradient(circle at bottom, #88cc88, #2d882d);
+    background: radial-gradient(circle at bottom, #d0a963, #865e21);
     font-family: 'Exo 2', sans-serif;
+}
+
+button {
+    @include tile();
 }
