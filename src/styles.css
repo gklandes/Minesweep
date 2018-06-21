@@ -1,6 +1,19 @@
+/* Bootstrap */
 @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
 
+/* 
+font-family: 'Exo 2', sans-serif;
+font-family: 'Bungee', cursive;
+*/
+@import url('https://fonts.googleapis.com/css?family=Bungee|Exo+2');
+
+html,
 body {
+    height: 100%;
     margin: 0;
     padding: 0;
+}
+body {
+    background: radial-gradient(circle at bottom, #88cc88, #2d882d);
+    font-family: 'Exo 2', sans-serif;
 }
