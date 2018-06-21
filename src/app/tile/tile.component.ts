@@ -4,7 +4,7 @@ import { faBomb, faFlag } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-tile',
   templateUrl: './tile.component.html',
-  styleUrls: ['./tile.component.css']
+  styleUrls: ['./tile.component.scss']
 })
 export class TileComponent {
   // icons

@@ -4,7 +4,7 @@ import { Game } from '../game';
 @Component({
   selector: 'app-minefield',
   templateUrl: './minefield.component.html',
-  styleUrls: ['./minefield.component.css']
+  styleUrls: ['./minefield.component.scss']
 })
 export class MinefieldComponent implements OnInit {
   @Input() game: Game;
