@@ -1,8 +1,13 @@
-<h1>
-  Minesweep
-</h1>
-<hr>
-<app-minefield [game]="game"></app-minefield>
-
-<hr>
-{{ game | json }}
+<div class="wrapper"><div [ngSwitch]="phase" class="wrapper-inner">
+  <span *ngSwitchCase="'start'">
+    <h1>
+      Minesweep
+    </h1>
+    <button type="button" (click)="play()">Play</button>
+  </span>
+  <span *ngSwitchCase="'play'">
+      <button type="button" (click)="quit()">Quit</button>
+      <button type="button" (click)="reset()">Reset</button>
+      <app-minefield [game]="game"></app-minefield>
+  </span>
+</div></div>

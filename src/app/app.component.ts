@@ -11,6 +11,7 @@ import { Game } from './game';
 export class AppComponent {
   active: boolean = false;
   game: Game;
+  phase: string = 'start'; // start,play,finish
 
   constructor (fb: FormBuilder) {
     this.game = this.loadGame();
@@ -19,5 +20,17 @@ export class AppComponent {
   loadGame (): Game {
     let data = JSON.parse(localStorage.getItem('save_game'));
     return new Game(data);
+  }
+
+  play (): void {
+    this.phase = 'play';
+  }
+
+  reset (): void {
+    this.game = new Game();
+  }
+
+  quit (): void {
+    this.phase = 'start';
   }
 }
