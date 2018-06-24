@@ -26,11 +26,13 @@ export class AppComponent {
     this.phase = 'play';
   }
 
-  reset (): void {
+  reset (): boolean {
     this.game = new Game();
+    return false;
   }
 
-  quit (): void {
+  quit (): boolean {
     this.phase = 'start';
+    return false;
   }
 }
