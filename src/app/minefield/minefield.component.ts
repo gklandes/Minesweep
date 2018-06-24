@@ -12,8 +12,6 @@ export class MinefieldComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.game.field);
-    console.log(this.game.state);
   }
 
   getRows () {

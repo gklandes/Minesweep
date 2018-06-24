@@ -1,5 +1,7 @@
-/* Bootstrap */
-@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+/* 
+Color palette: http://paletton.com/#uid=10N0u0kjYll9Pvwe+q4oggRtMbv
+base color: AA8040
+*/
 
 /* 
 font-family: 'Exo 2', sans-serif;
@@ -17,6 +19,7 @@ font-family: 'Bungee', cursive;
         url('/assets/fonts/Bungee-Regular.ttf');
 }
 
+@import 'variables';
 @import 'mixins';
 
 html,
@@ -24,10 +27,21 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    font-size: 10px;
 }
 body {
-    background: radial-gradient(circle at bottom, #d0a963, #865e21);
-    font-family: 'Exo 2', sans-serif;
+    background: radial-gradient(circle at bottom, $color-lighter, $color-darker);
+    color: $white;
+    font-family: 'Exo2', sans-serif;
+}
+
+a {
+    color: $white;
+    text-decoration: none;
+
+    &:hover {
+        color: $color-lightest;
+    }
 }
 
 button {

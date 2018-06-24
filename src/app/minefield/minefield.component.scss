@@ -1,12 +1,19 @@
+@import '../../variables';
+@import '../../mixins';
 
 .field-container {
     text-align: center;
 }
 .field-cell {
-    border: 1px solid #999;
+    @include tile();
     display: inline-block;
-    height: 3em;
-    width: 3em;
-    text-align: center;
-    line-height: 3em;
+    height: 4rem;
+    width: 4rem;
+    margin: 5px;
+    font-size: 3rem;
+
+    &.up {
+        color: $color-lightest;
+        background: $color-darker;
+    }
 }
