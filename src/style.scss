@@ -5,7 +5,17 @@
 font-family: 'Exo 2', sans-serif;
 font-family: 'Bungee', cursive;
 */
-@import url('https://fonts.googleapis.com/css?family=Bungee|Exo+2');
+// @import url('https://fonts.googleapis.com/css?family=Bungee|Exo+2');
+@font-face {
+    font-family: Exo2;
+    src: local("Exo 2"),
+        url('/assets/fonts/Exo2-Regular.ttf');
+}
+@font-face {
+    font-family: Bungee;
+    src: local("Bungee"),
+        url('/assets/fonts/Bungee-Regular.ttf');
+}
 
 @import 'mixins';
 
