@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 
 import { Game } from './game';
 
@@ -11,9 +10,8 @@ import { Game } from './game';
 export class AppComponent {
   active: boolean = false;
   game: Game;
-  phase: string = 'start'; // start,play,finish
 
-  constructor (fb: FormBuilder) {
+  constructor () {
     this.game = this.loadGame();
   }
 
@@ -22,17 +20,8 @@ export class AppComponent {
     return new Game(data);
   }
 
-  play (): void {
-    this.phase = 'play';
-  }
-
   reset (): boolean {
     this.game = new Game();
-    return false;
-  }
-
-  quit (): boolean {
-    this.phase = 'start';
     return false;
   }
 }

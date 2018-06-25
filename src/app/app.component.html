@@ -1,20 +1,11 @@
-<div class="wrapper"><div [ngSwitch]="phase" class="wrapper-inner">
+<div class="wrapper"><div class="wrapper-inner">
   <h1>
     Minesweep
   </h1>
-  <span *ngSwitchCase="'start'">
-
-    <button type="button" (click)="play()">Play</button>
-  </span>
-  <span *ngSwitchCase="'play'">
-      <app-minefield [game]="game"></app-minefield>
-      <ul class="controls">
-        <li>
-          <a href="" (click)="quit()">Quit</a>
-        </li>
-        <li>
-          <a href="" (click)="reset()">Reset</a>
-        </li>
-      </ul>
-  </span>
+  <app-minefield [game]="game"></app-minefield>
+  <ul class="controls">
+    <li>
+      <a href="" (click)="reset()">Reset</a>
+    </li>
+  </ul>
 </div></div>
