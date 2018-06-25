@@ -20,6 +20,10 @@ export class AppComponent {
     return new Game(data);
   }
 
+  updateGame (): void {
+    localStorage.setItem('save_game', JSON.stringify(this.game));
+  }
+
   reset (): boolean {
     this.game = new Game();
     return false;
