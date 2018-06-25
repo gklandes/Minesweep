@@ -39,11 +39,24 @@ export class MinefieldComponent {
   discover (r,c,e?): void {
     let i = (r * this.game.cols) + c;
     let val = this.game.field[i];
-    if (e && this.game.state[i] === 'F') return;
+    // reject clicks on flag or after game
+    if ((e && this.game.state[i] === 'F') || !this.game.active) return;
+
+    // reveal value
     this.game.state[i] = val;
-    if (val === '0') this.explore(i);
+
+    if (val === 'B') this.booom();
+    else if (val === '0') this.explore(i);
 
     if (e) this.sendUpdate();
+  }
+
+  private booom (): void {
+    console.log('booom!');
+    for (let i = 0; i < this.game.field.length; i++) {
+      if (this.game.field[i] === 'B') this.game.state[i] = 'B';
+    };
+    this.game.active = false;
   }
 
   private explore (i): void {
