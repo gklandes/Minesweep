@@ -24,11 +24,18 @@ export class MinefieldComponent {
   flag (r,c,e): boolean {
     let i = (r * this.game.cols) + c;
     let s = this.game.state[i];
+
+    // no flags after game
+    if (this.game.status !== 'active') return;
+
     // you can't flag an opened tile
     if (['H','F'].indexOf(s) >= 0) {
       //toggle b/t flag and hidden
       this.game.state[i] = s === 'H' ? 'F' : 'H';
     }
+
+    // check for win
+    if (this.isWin()) this.game.status = 'won';
 
     this.sendUpdate();
 
@@ -39,16 +46,24 @@ export class MinefieldComponent {
   discover (r,c,e?): void {
     let i = (r * this.game.cols) + c;
     let val = this.game.field[i];
+
     // reject clicks on flag or after game
-    if ((e && this.game.state[i] === 'F') || !this.game.active) return;
+    if ((e && this.game.state[i] === 'F') || this.game.status !== 'active') return;
 
-    // reveal value
+    // handle value
     this.game.state[i] = val;
-
     if (val === 'B') this.booom();
+    else if (this.isWin()) this.game.status = 'won';
     else if (val === '0') this.explore(i);
 
     if (e) this.sendUpdate();
+  }
+
+  private isWin (): boolean {
+    for (let i = 0; i < this.game.field.length; i++) {
+      if (this.game.state[i] === 'H') return false;
+    };
+    return true;
   }
 
   private booom (): void {
@@ -56,7 +71,7 @@ export class MinefieldComponent {
     for (let i = 0; i < this.game.field.length; i++) {
       if (this.game.field[i] === 'B') this.game.state[i] = 'B';
     };
-    this.game.active = false;
+    this.game.status = 'lost';
   }
 
   private explore (i): void {

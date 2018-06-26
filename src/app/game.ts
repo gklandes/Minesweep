@@ -1,7 +1,7 @@
 export interface GameData {
   rows: number,
   cols: number,
-  active: boolean,
+  status: string,
   field: string[],
   state: string[]
 }
@@ -9,7 +9,7 @@ export interface GameData {
 export class Game {
   rows: number = 8;
   cols: number = 8;
-  active: boolean = true;
+  status: string = 'active';
   field: string[] = [];
   state: string[] = [];
 

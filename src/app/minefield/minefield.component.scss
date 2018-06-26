@@ -4,6 +4,7 @@
 .field-container {
     text-align: center;
 }
+
 .field-cell {
     @include tile();
     display: inline-block;
@@ -15,5 +16,13 @@
     &.up {
         color: $color-lightest;
         background: $color-darker;
+    }
+
+    .won & {
+        color: $color-success;
+    }
+
+    .lost & {
+        color: $color-failure;
     }
 }
