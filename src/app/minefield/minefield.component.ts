@@ -67,7 +67,6 @@ export class MinefieldComponent {
   }
 
   private booom (): void {
-    console.log('booom!');
     for (let i = 0; i < this.game.field.length; i++) {
       if (this.game.field[i] === 'B') this.game.state[i] = 'B';
     };
