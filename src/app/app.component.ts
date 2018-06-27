@@ -16,7 +16,7 @@ export class AppComponent {
     this.loadGame(data);
   }
 
-  loadGame (data: any): void {
+  loadGame (data?: any): void {
     this.game = new Game(data || {
       rows: Math.floor((window.innerHeight - 200) / 50),
       cols: Math.floor(window.innerWidth / 50)
@@ -24,8 +24,13 @@ export class AppComponent {
     this.updateGame();
   }
 
+  resetGame (): boolean {
+    this.loadGame();
+    this.updateGame();
+    return false;
+  }
+
   updateGame (): void {
     localStorage.setItem('save_game', JSON.stringify(this.game));
   }
-
 }
