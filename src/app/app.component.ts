@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Game } from './game';
+import { Game, GameData } from './game';
 
 @Component({
   selector: 'app-root',
@@ -12,20 +12,20 @@ export class AppComponent {
   game: Game;
 
   constructor () {
-    this.game = this.loadGame();
+    let data = JSON.parse(localStorage.getItem('save_game'));
+    this.loadGame(data);
   }
 
-  loadGame (): Game {
-    let data = JSON.parse(localStorage.getItem('save_game'));
-    return new Game(data);
+  loadGame (data: any): void {
+    this.game = new Game(data || {
+      rows: Math.floor((window.innerHeight - 200) / 50),
+      cols: Math.floor(window.innerWidth / 50)
+    });
+    this.updateGame();
   }
 
   updateGame (): void {
     localStorage.setItem('save_game', JSON.stringify(this.game));
   }
 
-  reset (): boolean {
-    this.game = new Game();
-    return false;
-  }
 }

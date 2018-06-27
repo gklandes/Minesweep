@@ -1,9 +1,9 @@
 export interface GameData {
   rows: number,
   cols: number,
-  status: string,
-  field: string[],
-  state: string[]
+  status?: string,
+  field?: string[],
+  state?: string[]
 }
 
 export class Game {
