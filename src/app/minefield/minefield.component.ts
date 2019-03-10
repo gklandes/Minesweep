@@ -60,10 +60,7 @@ export class MinefieldComponent {
   }
 
   private isWin (): boolean {
-    for (let i = 0; i < this.game.field.length; i++) {
-      if (this.game.state[i] === 'H') return false;
-    };
-    return true;
+    return this.game.state.indexOf('H') < 0;
   }
 
   private booom (): void {
