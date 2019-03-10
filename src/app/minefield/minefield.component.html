@@ -1,7 +1,7 @@
 <div class="field-container" [ngClass]="game.status">
   <div class="field-row" *ngFor="let r of getRows()">
     <div class="field-cell" *ngFor="let t of getCells(r); let c = index"
-      (click)="discover(r,c,$event)"
+      (click)="dig(r,c,$event)"
       (contextmenu)="flag(r,c,$event)"
       [ngClass]="t === 'H' ? 'up':'down'">
       <app-tile [tileValue]="t"></app-tile>

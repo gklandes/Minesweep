@@ -43,7 +43,7 @@ export class MinefieldComponent {
     return e.shiftKey;
   }
 
-  discover (r,c,e?): void {
+  dig (r,c,e?): void {
     let i = (r * this.game.cols) + c;
     let val = this.game.field[i];
 
@@ -68,6 +68,7 @@ export class MinefieldComponent {
       if (this.game.field[i] === 'B') this.game.state[i] = 'B';
     };
     this.game.status = 'lost';
+    this.sendUpdate();
   }
 
   private explore (i): void {
@@ -75,35 +76,35 @@ export class MinefieldComponent {
     let col = i % this.game.cols;
     // TL
     if (row > 0 && col > 0 && this.isOpen(row-1,col-1)) {
-      this.discover(row-1,col-1);
+      this.dig(row-1,col-1);
     }
     // TC
     if (row > 0 && this.isOpen(row-1,col)) {
-      this.discover(row-1,col);
+      this.dig(row-1,col);
     }
     // TR
     if (row > 0 && col < (this.game.cols-1) && this.isOpen(row-1,col+1)) {
-      this.discover(row-1,col+1);
+      this.dig(row-1,col+1);
     }
     // ML
     if (col > 0 && this.isOpen(row,col-1)) {
-      this.discover(row,col-1);
+      this.dig(row,col-1);
     }
     // MR
     if (col < (this.game.cols - 1) && this.isOpen(row,col+1)) {
-      this.discover(row,col+1);
+      this.dig(row,col+1);
     }
     // BL
     if (row < (this.game.rows - 1) && col > 0 && this.isOpen(row+1,col-1)) {
-      this.discover(row+1,col-1);
+      this.dig(row+1,col-1);
     }
     // BC
     if (row < (this.game.rows - 1) && this.isOpen(row+1,col)) {
-      this.discover(row+1,col);
+      this.dig(row+1,col);
     }
     // BR
     if (row < (this.game.rows - 1) && col < (this.game.cols - 1) && this.isOpen(row+1,col+1)) {
-      this.discover(row+1,col+1);
+      this.dig(row+1,col+1);
     }
   }
 
