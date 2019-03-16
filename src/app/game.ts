@@ -3,15 +3,17 @@ export interface GameData {
   cols: number,
   status?: string,
   field?: string[],
-  state?: string[]
+  state?: string[],
+  time?: number;
 }
 
 export class Game {
   rows: number = 8;
   cols: number = 8;
-  status: string = 'active';
+  status: string = 'init';
   field: string[] = [];
   state: string[] = [];
+  time: number = null;
 
   constructor (data?: GameData) {
     if (data) Object.assign(this, data);

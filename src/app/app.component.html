@@ -7,5 +7,8 @@
     <li>
       <a href="" (click)="resetGame()">Reset</a>
     </li>
+    <li>
+      Time: {{ game.time || 0 | date : 'm:ss' }}
+    </li>
   </ul>
 </div></div>
