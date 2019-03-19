@@ -17,5 +17,5 @@ COPY package.json /usr/src/app/package.json
 RUN npm install
 RUN npm install -g @angular/cli
 EXPOSE 4200
-COPY . /usr/src/app/
+COPY src/app/ /usr/src/app/
 CMD ng serve --host 0.0.0.0

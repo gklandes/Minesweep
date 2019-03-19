@@ -5,7 +5,7 @@ services:
         image: postgres
     api:
         build:
-            context: ./api
+            context: .
             dockerfile: Dockerfile.django
         command: python scripts/psqltest.py
         volumes:
@@ -16,7 +16,7 @@ services:
             - db
     app:
         build:
-            context: ./app
+            context: .
             dockerfile: Dockerfile.angular
         volumes:
             - ./app/:/usr/src/app
