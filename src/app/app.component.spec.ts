@@ -1,14 +1,20 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { MinefieldComponent } from './minefield/minefield.component';
+import { TileComponent } from './tile/tile.component';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        MinefieldComponent,
+        TileComponent,
+        FaIconComponent,
       ],
     }).compileComponents();
   }));
-  it('should create the app', async(() => {
+  fit('should create the app', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
@@ -22,6 +28,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to minesweep!');
+    expect(compiled.querySelector('h1').textContent).toContain('Minesweep');
   }));
 });

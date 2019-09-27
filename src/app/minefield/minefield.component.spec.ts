@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MinefieldComponent } from './minefield.component';
+import { TileComponent } from '../tile/tile.component';
 
 describe('MinefieldComponent', () => {
   let component: MinefieldComponent;
@@ -8,7 +9,10 @@ describe('MinefieldComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MinefieldComponent ]
+      declarations: [ 
+        MinefieldComponent,
+        // TileComponent,
+      ]
     })
     .compileComponents();
   }));
