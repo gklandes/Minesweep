@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/gklandes/Minesweep.svg?branch=master)](https://travis-ci.org/gklandes/Minesweep)
 # Minesweep
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
