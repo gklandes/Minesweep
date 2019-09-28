@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "9"
+  - "10.16"
 dist: trusty
 sudo: required
 branches:
@@ -9,7 +9,7 @@ branches:
 before_script:
   - npm install -g @angular/cli
 script:
-- ng lint
+# - ng lint
 - ng build --prod --base-href https://github.com/gklandes/Minesweep.git
 # sudo: required
 # dist: trusty
