@@ -1,28 +1,41 @@
-sudo: required
-dist: trusty
 language: node_js
 node_js:
-  - '9.4'
-
-addons:
-apt:
-  sources:
-    - google-chrome
-  packages:
-    - google-chrome-stable
-    - google-chrome-beta
-
-before_install:
-  - export CHROME_BIN=chromium-browser
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - nvm install 10.16.0
-  - npm i -g npm@6.11.3
-
+  - "9"
+dist: trusty
+sudo: required
+branches:
+  only:
+  - master
 before_script:
-- npm install -g angular-cli
-- npm install -g karma
-- npm install
-- ng build
+  - npm install -g @angular/cli
+script:
+- ng lint
+- ng build --prod --base-href https://github.com/gklandes/Minesweep.git
+# sudo: required
+# dist: trusty
+# language: node_js
+# node_js:
+#   - '10.16'
 
-script: karma start src/karma.conf.js --single-run
+# addons:
+# apt:
+#   sources:
+#     - google-chrome
+#   packages:
+#     - google-chrome-stable
+#     - google-chrome-beta
+
+# before_install:
+#   - export CHROME_BIN=chromium-browser
+#   - export DISPLAY=:99.0
+#   - sh -e /etc/init.d/xvfb start
+#   - nvm install 10.16.0
+#   - npm i -g npm@6.11.3
+
+# before_script:
+# - npm install -g angular-cli
+# - npm install -g karma
+# - npm install
+# - ng build
+
+# script: karma start src/karma.conf.js --single-run
