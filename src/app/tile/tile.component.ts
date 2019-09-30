@@ -13,5 +13,5 @@ export class TileComponent {
 
   @Input() tileValue;
 
-  constructor() { }
+  constructor () { }
 }

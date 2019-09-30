@@ -7,14 +7,14 @@ import { Game } from './game';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  active: boolean = false;
+  active = false;
   game: Game;
   private begin: number = null;
   private timeInterval: any;
 
   constructor () {
-    let stored = localStorage.getItem('save_game')
-    let data = JSON.parse(stored || 'false');
+    const stored = localStorage.getItem('save_game');
+    const data = JSON.parse(stored || 'false');
     this.loadGame(data);
   }
 
@@ -42,8 +42,7 @@ export class AppComponent {
 
   updateGame (): void {
     console.log('update', this.game.status);
-    if (this.game.status === 'active') this.startTimer();
-    else {
+    if (this.game.status === 'active') { this.startTimer(); } else {
       this.stopTimer();
       // this.game.status = 'active';
     }
@@ -60,7 +59,7 @@ export class AppComponent {
       this.begin = new Date().valueOf();
       this.timeInterval = setInterval(() => {
         this.setTimeString();
-      },1000);
+      }, 1000);
     }
   }
 

@@ -1,8 +1,9 @@
+
 {
-  "rulesDirectory": [
-    "node_modules/codelyzer"
-  ],
+  "extends": ["tslint-angular"],
   "rules": {
+    "directive-selector": [true, "attribute", "foo", "camelCase"],
+    "component-selector": [true, "element", "foo", "kebab-case"],
     "arrow-return-shorthand": true,
     "callable-types": true,
     "class-name": true,
@@ -89,6 +90,10 @@
     ],
     "radix": true,
     "semicolon": [
+      true,
+      "always"
+    ],
+    "space-before-function-paren": [
       true,
       "always"
     ],
