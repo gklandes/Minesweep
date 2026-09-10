@@ -1,14 +1,8 @@
-import styled from 'tailwind';
-
-const StyledMinefield = styled.div`
-  color: pink;
-`;
-
 export function Minefield() {
   return (
-    <StyledMinefield>
+    <div className="text-pink-500">
       <h1>Welcome to Minefield!</h1>
-    </StyledMinefield>
+    </div>
   );
 }
 
