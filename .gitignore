@@ -43,3 +43,6 @@ Thumbs.db
 
 # hide old files from repo
 archive/
+.nx/polygraph
+.nx/self-healing
+.nx/migrate-runs
